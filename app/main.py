@@ -7,7 +7,7 @@ import redis
 # L'hostname 'redis' correspond au nom du service dans docker-compose.yaml
 try:
     # Tente de se connecter au service 'redis' sur le port par défaut
-    cache = redis.Redis(host='redis', port=6379)
+    cache = redis.Redis(host=os.environ.get('REDIS_HOST', 'redis'), port=int(os.environ.get('REDIS_PORT', 6379)))
 except Exception as e:
     print(f"Échec de la connexion à Redis: {e}")
     cache = None
