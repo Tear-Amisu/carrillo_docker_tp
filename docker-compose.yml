@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  web:
+    # Le contexte de construction est le dossier actuel (CARRILLO_DOCKER_TP)
+    build: 
+      context: . 
+      dockerfile: Dockerfile
+    # Le tag spécifique de l'image
+    image: carrillo_docker_tp
+    container_name: flask-web-counter
+    ports:
+      - "5000:5000"
+    restart: always
+    depends_on:
+      - redis
+
+  redis:
+    image: "redis:7-alpine"
+    container_name: redis-counter-db
+    restart: always
+    volumes:
+      - redis-data:/data
+
+volumes:
+  redis-data:
