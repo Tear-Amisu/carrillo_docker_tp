@@ -9,7 +9,7 @@ Si vous souhaitez récupérer l'image docker:
 docker pull tearamisu/carrillo_docker_tp:latest
 
 Si vous souhaitez avoir un rapport de scan des vulnérabilités:
-voir vulnerability_scan.txt
+voir le fichier vulnerability_scan.txt
 
  
 RECUPERER LE PROJET:
@@ -23,15 +23,16 @@ CONSTRUCTION ET LANCEMENT DU PROJET:
 1. Rendez-vous à la racine du projet:
 cd carrillo_docker_tp
 
-2. Lancez la construction et le déploiement des conteneurs (Flask et Redis) en mode détaché.
-   Cette commande build l'image à partir du Dockerfile et utilise docker-compose:
-
+2. Lancez la construction et le déploiement des conteneurs:
 docker compose up --build -d
 
 
 ACCES A L'APPLICATION:
 
-Vérifiez avec 'docker compose ps' si les conteneurs ont démarrés, puis accédez à l'application dans votre navigateur:
+Vérifiez si le docker tourne bien avec la commande:
+docker compose ps
+
+Accédez à l'application dans votre navigateur:
 http://localhost:5000
 
 

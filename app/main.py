@@ -17,7 +17,7 @@ COUNTER_KEY = 'global_counter'
 app = Flask(__name__)
 
 def get_hit_count():
-    """Tente de se connecter à Redis et d'obtenir le compteur avec résilience."""
+    """Tente de se connecter 5x à Redis et d'obtenir le compteur avec résilience."""
     retries = 5
     while True:
         try:
@@ -35,7 +35,7 @@ def get_hit_count():
 
 @app.route('/')
 def show_counter():
-    """Route principale qui affiche la valeur actuelle et les boutons."""
+    """Page principale qui affiche la valeur actuelle et les boutons."""
     try:
         count = get_hit_count()
         # Utilisation d'un formulaire pour garantir que les requêtes sont bien des POST
