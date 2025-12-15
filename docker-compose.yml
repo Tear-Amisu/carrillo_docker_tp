@@ -2,11 +2,9 @@ version: '3.8'
 
 services:
   web:
-    # Le contexte de construction est le dossier actuel (CARRILLO_DOCKER_TP)
     build: 
       context: . 
       dockerfile: Dockerfile
-    # Le tag spécifique de l'image
     image: carrillo_docker_tp
     container_name: flask-web-counter
     ports:
